@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ quiet: true });
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -8,7 +8,6 @@ const userRoute = require("./src/routes/user");
 const cors = require("cors");
 const createAdminAccount = require("./src/scripts/admin")
 
-console.log("generate token secretKey : ", process.env.ACCESS_TOKEN_SECRET);
 app.use(bodyParser.json())
 app.use(cors())
 createAdminAccount();
