@@ -1,2 +1,4 @@
 backend/node_modules/
 froentend/node_modules/
+.DS_Store
+froentend/build/
