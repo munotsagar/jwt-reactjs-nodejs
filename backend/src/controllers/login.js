@@ -1,4 +1,4 @@
-const login = require("../services/login");
+const {login, refreshToken} = require("../services/login");
 
 
 async function loginController(req, res) {
@@ -15,7 +15,7 @@ async function loginController(req, res) {
 async function refreshTokenController(req, res) {
     try {
         const { token } = req.body;
-        const newToken = await login.refreshToken(token);
+        const newToken = await refreshToken(token);
         res.json({ token: newToken })
     }
     catch (error) {
@@ -24,9 +24,5 @@ async function refreshTokenController(req, res) {
     }
 }
 
-const loginController = {
-    login: loginController,
-    refreshToken: refreshTokenController
-}
 
-module.exports = loginController
+module.exports = {loginController, refreshTokenController};
