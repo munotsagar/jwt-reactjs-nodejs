@@ -13,18 +13,6 @@ const authonticateToken = (req, res, next) => {
     });
 };
 
-const verifyToken = (token) => {
-    try {
-        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-        return decoded;
-    }
-    catch (err) {
-        return null;
-    }
-    
-}
-
 module.exports = {
-    authonticateToken,
-    verifyToken
+    authonticateToken
 }
